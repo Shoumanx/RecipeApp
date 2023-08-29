@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project/DataBase/DataBaseLogic.dart';
-import 'package:project/Intro/Intro.dart';
-import 'package:project/Program.dart';
+import 'package:orangera/Screens/Onboard/Onboard.dart';
 
-import 'DataBase/DataBaseState.dart';
+import '../../DataBase/DataBaseLogic.dart';
+import '../../DataBase/DataBaseState.dart';
+import 'Program.dart';
+
+List xy = [];
 class Splashx extends StatelessWidget {
 
   @override
@@ -31,19 +33,20 @@ class Splashx extends StatelessWidget {
                   //     MaterialPageRoute(builder: (context) => showx(intro)),
                   //   );
                   // });
-                  xy = obj.food;
+                  // xy = obj.food;
+                  // print(obj.IsIntro);
                   if(obj.IsIntro == 1){
-                    obj.UpdateIsIntro(2, 'IsIntro');
+                    // obj.UpdateIsIntro(2, 'IsIntro');
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Intro()),
+                      MaterialPageRoute(builder: (context) => Onboard(x: obj)),
                     );
                   }
                   else if(obj.IsIntro == 2){
-                    // obj.UpdateIsIntro(1, 'IsIntro');
+                    obj.UpdateIsIntro(1, 'IsIntro');
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Showx()),
+                        MaterialPageRoute(builder: (context) => Showx()),
                     );
                   }
                   // print('IsIntro is ${obj.IsIntro}\n');
@@ -58,9 +61,9 @@ class Splashx extends StatelessWidget {
                   //   else  print('Card...');
                   // });
                   // obj.insert(category: 'IsIntro', name: 'IsIntro', calories: '', price: '', count: 1);
-                  obj.insert(category: 'food', name: 'Apple', calories: '500', price: '500', count: 8);
-                  obj.insert(category: 'food', name: 'Orange', calories: '500', price: '300', count: 5);
-                  obj.insert(category: 'food', name: 'Banana', calories: '500', price: '400', count: 15);
+                  // obj.insert(category: 'food', name: 'Apple', calories: '500', price: '500', count: 8);
+                  // obj.insert(category: 'food', name: 'Orange', calories: '500', price: '300', count: 5);
+                  // obj.insert(category: 'food', name: 'Banana', calories: '500', price: '400', count: 15);
                   // obj.deleteRow('counter');
                 },
                 elevation: 15,

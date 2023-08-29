@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:orangera/Colors/Colors.dart';
 import 'package:orangera/Texts/TextFiles.dart';
 
 
-PlanBlocks(String icon,String text){
+Widget PlanBlocks(String icon, String text, Color clr, int n){
   return Container(
     width: 80.w,height: 85.h,
     decoration: BoxDecoration(
-      color: Primary,
+      color: clr,
      borderRadius: BorderRadius.circular(10.r),
     ),
     child: Container(

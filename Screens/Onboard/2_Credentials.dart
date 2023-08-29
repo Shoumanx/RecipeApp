@@ -3,13 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:orangera/Screens/Onboard/Onboard.dart';
 import 'package:orangera/Texts/TextFiles.dart';
 import 'package:orangera/Widgets/Fields.dart';
 import '../../Colors/Colors.dart';
 
 class Credentials extends StatelessWidget {
   Credentials({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -43,11 +43,11 @@ class Credentials extends StatelessWidget {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          OBFieldForm(),
+                          OBFieldForm(kg),
                           SizedBox(width: 10.w,),
                           OBForm('Kg',FontWeight.w700),
                           SizedBox(width: 40.w,),
-                          OBFieldForm(),
+                          OBFieldForm(cm),
                           SizedBox(width: 10.w,),
                           OBForm('Cm',FontWeight.w700)
                         ],

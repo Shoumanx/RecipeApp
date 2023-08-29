@@ -1,8 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:project/splashx.dart';
-import 'package:project/search/search.dart';
-import 'DataBase/DataBaseState.dart';
+import 'package:orangera/Screens/Splash/splashx.dart';
+
 List xy = [];
 class Showx extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -21,10 +20,7 @@ class Showx extends StatelessWidget {
               children: [
                 MaterialButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Searchx())
-                    );
+
                   },
                   elevation: 15,
                   child: Row(

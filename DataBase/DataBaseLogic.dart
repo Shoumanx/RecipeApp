@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:project/DataBase/DataBaseState.dart';
 import 'package:sqflite/sqflite.dart';
+
+import 'DataBaseState.dart';
 
 class DataBaseLogic extends Cubit<DataBaseState>{
   DataBaseLogic() : super(InitState());

@@ -3,9 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../Colors/Colors.dart';
 
-OBFieldForm(){
+OBFieldForm(TextEditingController x){
   return Container(width: 60.w,
       child: TextFormField(
+        controller: x,
         textAlignVertical: TextAlignVertical.bottom,
         style: TextStyle(color: Primary, fontSize: 18.sp, fontWeight: FontWeight.w600,),
         textAlign: TextAlign.start,
@@ -21,9 +22,10 @@ OBFieldForm(){
   );
 }
 
-OBFieldFormProfile(String hint){
+OBFieldFormProfile(TextEditingController x, String hint){
   return Container(
       child: TextFormField(
+        controller: x,
         textAlignVertical: TextAlignVertical.bottom,
         style: TextStyle(color: Primary, fontSize: 18.sp, fontWeight: FontWeight.w600,),
         textAlign: TextAlign.start,
@@ -37,9 +39,10 @@ OBFieldFormProfile(String hint){
   );
 }
 
-OBFieldFormProfileNumber(String hint){
+OBFieldFormProfileNumber(TextEditingController x, String hint){
   return Container(
       child: TextFormField(
+        controller: x,
         textAlignVertical: TextAlignVertical.bottom,
         style: TextStyle(color: Primary, fontSize: 18.sp, fontWeight: FontWeight.w600,),
         textAlign: TextAlign.start,
