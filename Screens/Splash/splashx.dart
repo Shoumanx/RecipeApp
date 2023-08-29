@@ -35,6 +35,7 @@ class Splashx extends StatelessWidget {
                   // });
                   // xy = obj.food;
                   // print(obj.IsIntro);
+
                   if(obj.IsIntro == 1){
                     // obj.UpdateIsIntro(2, 'IsIntro');
                     Navigator.push(

@@ -20,7 +20,8 @@ class DataBaseLogic extends Cubit<DataBaseState>{
               'name text,'
               'calories text,'
               'price text,'
-              'count int)');
+              'count int,'
+              'gmORml text)');
           print('Table Created....');
         },
         onOpen: (d) {
@@ -44,10 +45,11 @@ class DataBaseLogic extends Cubit<DataBaseState>{
         required String name,
         required String calories,
         required String price,
-        required int count}
+        required int count,
+        required String gmORml}
       ){
     db.transaction((txn) async{
-      txn.rawInsert('insert into orangera (category, name, calories, price, count) values ("$category", "$name", "$calories", "$price", "$count")').then((value){
+      txn.rawInsert('insert into orangera (category, name, calories, price, count, gmORml) values ("$category", "$name", "$calories", "$price", "$count". "$gmORml")').then((value){
         print('#$value Row inserted...');
       }).onError((error, stackTrace){
         print('JUST ERROR... $error');
