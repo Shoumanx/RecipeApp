@@ -1,13 +1,17 @@
 
 import 'package:flutter/material.dart';
+import 'package:orangera/Screens/Splash/search.dart';
 import 'package:orangera/Screens/Splash/splashx.dart';
 
 List xy = [];
 class Showx extends StatelessWidget {
+  int currency = 0;
+  String fullName = '';
+  Showx({required this.currency, required this.fullName});
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: txt(x: 'Users List', clr: Colors.black, sz: 25),
+        title: txt(x: 'Home List', clr: Colors.black, sz: 25),
         centerTitle: true,
         backgroundColor: Colors.amber,
       ),
@@ -20,7 +24,10 @@ class Showx extends StatelessWidget {
               children: [
                 MaterialButton(
                   onPressed: () {
-
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Searchx()),
+                    );
                   },
                   elevation: 15,
                   child: Row(
@@ -31,19 +38,10 @@ class Showx extends StatelessWidget {
                   ),
                   color: Colors.amberAccent,
                 ),
-                Container(
-                  height: 630,
-                  child: ListView.builder(
-                    itemCount: xy.length,
-                    itemBuilder: (BuildContext context, int index){
-                        return   Card(
-                          child: ListTile(
-                            title: txt(x: xy[index]['name'], clr: Colors.black),
-                            subtitle: txt(x: xy[index]['count'].toString()),
-                            trailing: txt(x: xy[index]['price']),
-                          ),
-                        );
-                      }
+                Card(
+                  child: ListTile(
+                    title: txt(x: fullName, clr: Colors.black),
+                    subtitle: txt(x: currency.toString()),
                   ),
                 )
               ],

@@ -76,9 +76,11 @@ class Onboard extends StatelessWidget {
                           if(checker() == true){
                             formula();
                             dx.insert(category: 'currency', name: 'currency', calories: '', price: '', count: currency.toInt(), gmORml: '');
+                            dx.insert(category: 'currentCurrency', name: 'currency', calories: '', price: '', count: currency.toInt(), gmORml: '');
+                            dx.insert(category: 'fullName', name: name, calories: '', price: '', count: 0, gmORml: '');
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Showx()),
+                              MaterialPageRoute(builder: (context) => Showx(fullName: name, currency: currency.toInt())),
                             );
                           }
                         }

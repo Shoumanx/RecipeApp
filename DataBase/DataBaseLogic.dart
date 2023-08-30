@@ -6,8 +6,9 @@ import 'DataBaseState.dart';
 class DataBaseLogic extends Cubit<DataBaseState>{
   DataBaseLogic() : super(InitState());
   late Database db;
-  List food = [], intro = [], selectedFood = [];
-  int IsIntro = 0;
+  List food = [], needed = [], selectedFood = [];
+  int IsIntro = 0, currency = 0, currentCurrency = 0;
+  String fullName = '', savedDate = '';
   createDateBase() {
     openDatabase(
         'u.db',
@@ -16,7 +17,7 @@ class DataBaseLogic extends Cubit<DataBaseState>{
           print('Database Created....');
           d.execute('create table orangera '
               '(id integer primary key,'
-              ' category text,'
+              'category text,'
               'name text,'
               'calories text,'
               'price text,'
@@ -30,9 +31,31 @@ class DataBaseLogic extends Cubit<DataBaseState>{
             food = value;
           });
           showWhat(d, 'IsIntro').then((value) {
-            intro = value;
-            IsIntro = intro[0]['count'];
+            needed = value;
+            print('IsIntro: ${needed.length}');
+            IsIntro = needed.length;
           });
+          showWhat(d, 'fullName').then((value) {
+            needed = value;
+            print('fullName: ${needed.length}');
+            if(needed.length > 0)     fullName = needed[0]['name'];
+          });
+          showWhat(d, 'currency').then((value) {
+            needed = value;
+            print('Currency: ${needed.length}');
+            if(needed.length > 0)     currency = needed[0]['count'];
+          });
+          showWhat(d, 'date').then((value) {
+            needed = value;
+            print('Date: ${needed.length}');
+            if(needed.length > 0)     savedDate = needed[0]['name'];
+          });
+          showWhat(d, 'currentCurrency').then((value) {
+            needed = value;
+            print('Date: ${needed.length}');
+            if(needed.length > 0)     currentCurrency = needed[0]['count'];
+          });
+          print('it\'s ok....');
         }
     ).then((value) {
       db = value;
@@ -49,7 +72,7 @@ class DataBaseLogic extends Cubit<DataBaseState>{
         required String gmORml}
       ){
     db.transaction((txn) async{
-      txn.rawInsert('insert into orangera (category, name, calories, price, count, gmORml) values ("$category", "$name", "$calories", "$price", "$count". "$gmORml")').then((value){
+      txn.rawInsert('insert into orangera (category, name, calories, price, count, gmORml) values ("$category", "$name", "$calories", "$price", "$count", "$gmORml")').then((value){
         print('#$value Row inserted...');
       }).onError((error, stackTrace){
         print('JUST ERROR... $error');
@@ -66,7 +89,6 @@ class DataBaseLogic extends Cubit<DataBaseState>{
     // return results;
   }
 
-
   // Delete Row
   deleteRow(String category) async{
     int count = await db.rawDelete('DELETE FROM orangera WHERE category = ?', [category]);
@@ -76,12 +98,18 @@ class DataBaseLogic extends Cubit<DataBaseState>{
 
   // Update Row
 
-  UpdateIsIntro(int IsIntro, String category)async{
+  updateDate(String newDate)async{
     int n = await db.rawUpdate(
-        'UPDATE orangera SET count = ? WHERE category = ?',
-        [IsIntro, category]
+        'UPDATE orangera SET name = ? WHERE category = ?',
+        [newDate, 'date']
     );
-    print('#Row $n Updated...');
+    print('#Row $n Updated ----> Date...');
+    n = await db.rawUpdate(
+        'UPDATE orangera SET count = ? WHERE category = ?',
+        [12, 'currentCurrency']     // 12 is currency
+    );
+    currentCurrency = currency;
+    print('#Row $n Updated ----> currency...');
     emit(Update());
   }
 

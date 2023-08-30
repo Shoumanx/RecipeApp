@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:orangera/Screens/Onboard/Onboard.dart';
+import 'package:orangera/DataBase/StartDataBase.dart';
 
 import '../../DataBase/DataBaseLogic.dart';
 import '../../DataBase/DataBaseState.dart';
 import 'Program.dart';
-
 List xy = [];
 class Splashx extends StatelessWidget {
 
@@ -17,8 +18,6 @@ class Splashx extends StatelessWidget {
         listener: (context, state){},
         builder: (context, state){
           DataBaseLogic obj = BlocProvider.of(context);
-          List intro = [];
-          int IsIntro = 0;
           return Scaffold(
             appBar: AppBar(),
             body: Container(
@@ -35,20 +34,35 @@ class Splashx extends StatelessWidget {
                   // });
                   // xy = obj.food;
                   // print(obj.IsIntro);
+                  // Get the current date and time
+                  DateTime now = DateTime.now();
 
-                  if(obj.IsIntro == 1){
-                    // obj.UpdateIsIntro(2, 'IsIntro');
+                  // Format the date as per your requirement
+                  String currentDate = DateFormat('yyyy-MM-dd').format(now);
+                  // String currentDate = '2023-08-29';
+                  print('now: $now \t\t\t currentDate: $currentDate');
+                  print(obj.IsIntro);
+                  if(obj.IsIntro == 0){
+                    obj.insert(category: 'date', name: currentDate, calories: '', price: '', count: 1, gmORml: '');
+                    obj.insert(category: 'IsIntro', name: 'IsIntro', calories: '', price: '', count: 1, gmORml: '');
+                    insertFood(obj);
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Onboard(x: obj)),
                     );
                   }
-                  else if(obj.IsIntro == 2){
-                    obj.UpdateIsIntro(1, 'IsIntro');
+                  else if(obj.IsIntro == 1){
+                    print('from splashx: ${obj.savedDate}');
+                    print('the date Before Update: ${obj.savedDate}');
+                    if(currentDate != obj.savedDate){
+                      obj.updateDate(currentDate);
+                    }
+                    print('the date After Update: ${obj.savedDate}');
                     Navigator.push(
                       context,
-                        MaterialPageRoute(builder: (context) => Showx()),
+                      MaterialPageRoute(builder: (context) => Showx(fullName: obj.fullName, currency: obj.currentCurrency)),
                     );
+                    // obj.UpdateIsIntro(1, 'IsIntro');
                   }
                   // print('IsIntro is ${obj.IsIntro}\n');
                   // obj.showWhat(obj.db, 'IsIntro').then((value) {
@@ -61,7 +75,7 @@ class Splashx extends StatelessWidget {
                   //   }
                   //   else  print('Card...');
                   // });
-                  // obj.insert(category: 'IsIntro', name: 'IsIntro', calories: '', price: '', count: 1);
+                  // obj.insert(category: 'IsIntro', name: 'IsIntro', calories: '', price: '', count: 1, gmORml: '');
                   // obj.insert(category: 'food', name: 'Apple', calories: '500', price: '500', count: 8);
                   // obj.insert(category: 'food', name: 'Orange', calories: '500', price: '300', count: 5);
                   // obj.insert(category: 'food', name: 'Banana', calories: '500', price: '400', count: 15);

@@ -3,8 +3,8 @@ import 'package:orangera/DataBase/DataBaseLogic.dart';
 
 insertFood(DataBaseLogic obj){
   obj.insert(category: 'food', name: 'italiano pasta ziti - 400 gram', calories: '360 kcal/100gm', price: 'EGP 14.95', count: 360, gmORml: 'gm');
-  obj.insert(category: 'food', name: 'lamar full cream milk - 1 liter', calories: '120 kcal/100gm', price: 'EGP 34.75', count: 120, gmORml: 'gm');
-  obj.insert(category: 'food', name: 'juhayna full cream milk - 1.5 liter', calories: '114 kcal/100gm', price: 'EGP 49.50', count: 114, gmORml: 'gm');
+  obj.insert(category: 'food', name: 'lamar full cream milk - 1 liter', calories: '120 kcal/100ml', price: 'EGP 34.75', count: 120, gmORml: 'ml');
+  obj.insert(category: 'food', name: 'juhayna full cream milk - 1.5 liter', calories: '114 kcal/100ml', price: 'EGP 49.50', count: 114, gmORml: 'ml');
   obj.insert(category: 'food', name: 'al doha egyptian rice - 1kg', calories: '350 kcal/100gm', price: 'EGP 30.95', count: 350, gmORml: 'gm');
   obj.insert(category: 'food', name: 'domty feta cheese, low salt - 1 kg', calories: '240 kcal/100gm', price: 'EGP 83.10', count: 240, gmORml: 'gm');
   obj.insert(category: 'food', name: 'dolphin tuna shredded - 200 gram', calories: '200 kcal/100gm', price: 'EGP 24.98', count: 200, gmORml: 'gm');
@@ -27,10 +27,10 @@ insertFood(DataBaseLogic obj){
   obj.insert(category: 'food', name: 'imported banana - 1 kg', calories: '89 kcal/100gm', price: 'EGP 69.95', count: 89, gmORml: 'gm');
   obj.insert(category: 'food', name: 'sweet potatoes - 1 kg', calories: '90 kcal/100gm', price: 'EGP 9.95', count: 90, gmORml: 'gm');
   obj.insert(category: 'food', name: 'carrot - 1 kg', calories: '54 kcal/100gm', price: 'EGP 24.95', count: 54, gmORml: 'gm');
-  obj.insert(category: 'food', name: 'birell malt drink - 330ml', calories: '16 kcal/100gm', price: 'EGP 9.50', count: 16, gmORml: 'gm');
-  obj.insert(category: 'food', name: 'pepsi cola can - 330ml', calories: '41 kcal/100gm', price: 'EGP 9.75', count: 41, gmORml: 'gm');
-  obj.insert(category: 'food', name: 'fayrouz pineapple malt drink - 330ml', calories: '114 kcal/100gm', price: 'EGP 9.25', count: 114, gmORml: 'gm');
-  obj.insert(category: 'food', name: 'coca cola can - 330ml', calories: '42 kcal/100gm', price: 'EGP 9.75', count: 42, gmORml: 'gm');
+  obj.insert(category: 'food', name: 'birell malt drink - 330ml', calories: '16 kcal/100ml', price: 'EGP 9.50', count: 16, gmORml: 'ml');
+  obj.insert(category: 'food', name: 'pepsi cola can - 330ml', calories: '41 kcal/100ml', price: 'EGP 9.75', count: 41, gmORml: 'ml');
+  obj.insert(category: 'food', name: 'fayrouz pineapple malt drink - 330ml', calories: '114 kcal/100ml', price: 'EGP 9.25', count: 114, gmORml: 'ml');
+  obj.insert(category: 'food', name: 'coca cola can - 330ml', calories: '42 kcal/100ml', price: 'EGP 9.75', count: 42, gmORml: 'ml');
   obj.insert(category: 'food', name: 'koki plain beef luncheon - 1 kg', calories: '353 kcal/100gm', price: 'EGP 149.95', count: 353, gmORml: 'gm');
   obj.insert(category: 'food', name: 'fresh istamboly cheese - 1 kg', calories: '61 kcal/100gm', price: 'EGP 94.95', count: 61, gmORml: 'gm');
   obj.insert(category: 'food', name: 'barshoumy fig - 1 kg', calories: '249 kcal/100gm', price: 'EGP 34.95', count: 249, gmORml: 'gm');
