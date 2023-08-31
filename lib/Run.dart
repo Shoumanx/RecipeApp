@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:temp/Screens/Home.dart';
-import 'package:temp/Screens/Item_Select.dart';
-import 'package:temp/Screens/Lunch.dart';
+import 'package:orangera/Screens/Splash/splashx.dart';
 
 
 main(){
   runApp(
       MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Launch(),
+        home: Splashx(),
       )
   );
 }

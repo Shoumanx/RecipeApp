@@ -2,10 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:temp/assets/Color2.dart';
-import 'package:temp/assets/Text2.dart';
+import 'package:orangera/Screens/Item_Select.dart';
 
-Widget MealCards(String BGsvg,Color BGcolor,ImageProvider icn,String Title,String cal,Color ButtonShadow,Function x){
+import '../assets/Color2.dart';
+import '../assets/Text2.dart';
+
+
+Widget MealCards(String BGsvg,Color BGcolor,ImageProvider icn,String Title,String cal,Color ButtonShadow){
   return Stack(
       children: [
         SizedBox(height: 200.h,width: 135.w,
@@ -37,25 +40,22 @@ Widget MealCards(String BGsvg,Color BGcolor,ImageProvider icn,String Title,Strin
               SizedBox(height: 10.h,),
               MealBoxSubtitle('Recommended:\n$cal Kcal', White),
               SizedBox(height: 10.h,),
-              InkWell(
-                onTap: (){x();},
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100.r),
-                    boxShadow: [
-                      BoxShadow(
-                        color: ButtonShadow,
-                        offset: Offset(5.w, 5.h),
-                        blurRadius: 15.r,
-                        spreadRadius: 3.r,
-                      )
-                    ]
-                  ),
-                  child: CircleAvatar(
-                    radius: 20.r,
-                    backgroundColor: White,
-                    child: Icon(CupertinoIcons.right_chevron,color: BGcolor),
-                  ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: ButtonShadow,
+                      offset: Offset(5.w, 5.h),
+                      blurRadius: 15.r,
+                      spreadRadius: 3.r,
+                    )
+                  ]
+                ),
+                child: CircleAvatar(
+                  radius: 20.r,
+                  backgroundColor: White,
+                  child: Icon(CupertinoIcons.right_chevron,color: BGcolor),
                 ),
               )
           ],),

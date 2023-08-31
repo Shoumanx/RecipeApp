@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:temp/assets/Color2.dart';
-import 'package:temp/assets/Text2.dart';
+import 'package:orangera/DataBase/DataBaseLogic.dart';
+import 'package:orangera/Screens/Item_Select.dart';
+import 'package:orangera/Screens/Lunch.dart';
+
 
 import '../Widgets/Widgets.dart';
+import '../assets/Color2.dart';
+import '../assets/Text2.dart';
+import 'Onboard/Onboard.dart';
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+
+  Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +70,7 @@ class Home extends StatelessWidget {
                         child: Container(
                           color: Background,
                           width: 50.w,height: 50.h,
-                          child: Image(image: AssetImage('lib/Media/Images/male.png')),
+                          child: Image(image: AssetImage('lib/Media/Images/$maleFemale.png')),
                         ),
                       ),
                     ),
@@ -74,7 +80,7 @@ class Home extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          HomeHelloTitle('Abdulrahman', Secondary),
+                          HomeHelloTitle(fullName, Secondary),
                           HomeHelloSubtitle('Enjoy Your Meals', Secondary), // Add the third text here
                         ],
                       ),
@@ -97,11 +103,33 @@ class Home extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          MealCards('lib/Media/Svg/Breakfast.svg',Color(0xA6F96C7C),AssetImage('lib/Media/Icons/Bread.png'),'Breakfast','500-600',Color(0xffDD5355),(){}),
+                          InkWell(
+                              onTap: (){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => ItemSelect()),
+                                );
+                              },
+                              child: MealCards('lib/Media/Svg/Breakfast.svg', Color(0xA6F96C7C), AssetImage('lib/Media/Icons/Bread.png'), 'Breakfast','500-600', Color(0xffDD5355))
+                          ),
                           SizedBox(width: 25.w,),
-                          MealCards('lib/Media/Svg/Lunch.svg',Color(0xA6474AD9),AssetImage('lib/Media/Icons/Steak.png'),'Lunch','600-700',Color(0xff3038CA),(){}),
+                          InkWell(
+                              onTap: (){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => ItemSelect()),
+                                );
+                              },
+                              child: MealCards('lib/Media/Svg/Lunch.svg',Color(0xA6474AD9),AssetImage('lib/Media/Icons/Steak.png'),'Lunch','600-700',Color(0xff3038CA))),
                           SizedBox(width: 25.w,),
-                          MealCards('lib/Media/Svg/Dinner.svg',Color(0xA6433D91),AssetImage('lib/Media/Icons/Bowl.png'),'Dinner','700-800',Color(0xff130F4C),(){}),
+                          InkWell(
+                              onTap: (){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => ItemSelect()),
+                                );
+                              },
+                              child: MealCards('lib/Media/Svg/Dinner.svg',Color(0xA6433D91),AssetImage('lib/Media/Icons/Bowl.png'),'Dinner','700-800',Color(0xff130F4C))),
                         ],
                       ),
                     )
