@@ -12,6 +12,7 @@ import '../../Widgets/Navbar.dart';
 import '../../assets/Color2.dart';
 import '../../assets/Text2.dart';
 
+TextEditingController tak = TextEditingController();
 
 class Launch extends StatelessWidget {
   Launch({super.key});
@@ -29,6 +30,7 @@ class Launch extends StatelessWidget {
                     child: MaterialApp(
                       debugShowCheckedModeBanner: false,
                       home: Scaffold(
+                        resizeToAvoidBottomInset: false,
                         backgroundColor: Background,
                         floatingActionButton: Container(
                           width: 330.w,
@@ -55,36 +57,46 @@ class Launch extends StatelessWidget {
                               ),
                             ),
                             GNav(
-                              tabMargin: EdgeInsets.symmetric(horizontal: 10.w),
+                              tabMargin: EdgeInsets.symmetric(horizontal: 7.w),
                               onTabChange: (value){Controller.index.value=value;},
                               tabs: [
                                 GButton(
                                   icon: Icons.home,
-                                  iconSize: 20.w,
+                                  iconSize: 15.w,
                                   hoverColor: White,
                                   iconColor: Primary,
                                   text: 'Home',
-                                  gap: 10.w,
+                                  gap: 5.w,
                                   backgroundColor: Primary,
-                                  padding: EdgeInsets.all(15.w),
+                                  padding: EdgeInsets.all(10.w),
                                   borderRadius: BorderRadius.all(Radius.circular(20.r)),
                                   iconActiveColor: White,
                                   textColor: White,
                                 ),
                                 GButton(
                                   icon: Icons.store,
-                                  iconSize: 20.w,
+                                  iconSize: 15.w,
                                   hoverColor: White,
                                   iconColor: Primary,
-                                  text: 'Items',
-                                  gap: 10.w,
+                                  text: 'Shop',
+                                  gap: 5.w,
                                   backgroundColor: Primary,
-                                  padding: EdgeInsets.all(15.w),
+                                  padding: EdgeInsets.all(10.w),
                                   borderRadius: BorderRadius.all(Radius.circular(20.r)),
                                   iconActiveColor: White,
                                   textColor: White,
                                 ),
-                                GButton(icon: Icons.shopping_basket,iconSize: 25.w,hoverColor: White,iconColor: Primary,text: 'Cart',gap: 10,backgroundColor: Primary,padding: EdgeInsets.all(15.w),borderRadius: BorderRadius.all(Radius.circular(20.r)),iconActiveColor: White,textColor: White,),
+                                GButton(icon: Icons.shopping_basket,
+                                  iconSize: 15.w,
+                                  hoverColor: White,
+                                  iconColor: Primary,
+                                  text: 'Cart',
+                                  gap: 5.w,
+                                  backgroundColor: Primary,
+                                  padding: EdgeInsets.all(10.w),
+                                  borderRadius: BorderRadius.all(Radius.circular(20.r)),
+                                  iconActiveColor: White,
+                                  textColor: White,),
                               ],)
                           ],),
                         ),floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

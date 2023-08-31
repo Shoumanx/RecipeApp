@@ -21,6 +21,7 @@ TextEditingController cm = TextEditingController();
 TextEditingController tkg = TextEditingController();
 TextEditingController nameX = TextEditingController();
 TextEditingController ageX = TextEditingController();
+TextEditingController tak = TextEditingController();
 
 class Onboard extends StatelessWidget {
   late PageController controller;

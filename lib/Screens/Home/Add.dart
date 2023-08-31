@@ -9,6 +9,7 @@ import '../../DataBase/DataBaseLogic.dart';
 import '../../assets/Color2.dart';
 import '../../Widgets/Widgets.dart';
 import '../../assets/Text2.dart';
+import 'Lunch.dart';
 
 
 class Add extends StatelessWidget {
@@ -20,10 +21,9 @@ class Add extends StatelessWidget {
   FocusNode Calories = FocusNode();
 
 
-
   @override
   Widget build(BuildContext context) {
-    TextEditingController taked = TextEditingController();
+
     return BlocProvider(
         create: (context) => ChangeCartLogic(),
         child: BlocConsumer<ChangeCartLogic, ChangeCartState>(
@@ -91,7 +91,7 @@ class Add extends StatelessWidget {
                           children: [
                             ItemSelectName(foodName ,Tile),
                             Container(
-                              height: 180.w,
+                              height: 180.h,
                               padding: EdgeInsets.all(14.w),
                               decoration: BoxDecoration(
                                 color: Color(0xffDCE4FF),
@@ -129,7 +129,8 @@ class Add extends StatelessWidget {
                                       children: [
                                         InkWell(
                                           onTap: (){
-                                            obj.updateCounting(cnt: foodCount, HowMany: int.parse(taked.text));
+                                            obj.updateCounting(cnt: foodCount, HowMany: int.parse(tak.text));
+                                            tak.clear();
                                           },
                                           child: Container(
                                             width: 70.w,
@@ -144,20 +145,19 @@ class Add extends StatelessWidget {
                                     ),
                                     Container(
                                       width: 100.w,height: 30.h,
-                                      child: TextFormField(
-                                        controller: taked,
-                                        focusNode: Calories,
-                                        decoration: InputDecoration(
-                                            filled: true,
-                                            fillColor: Color(0xffD3DAFF),
-                                            contentPadding: EdgeInsets.fromLTRB(10,0,10,0),
-                                            hintText: 'Your Take',
-                                            hintStyle: TextStyle(color: Color(0xffA7B1EA),),
-                                            border: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(5.r),
-                                                borderSide: BorderSide.none
-                                            )
-                                        ),
+                                      child:  Container(
+                                          child: TextFormField(
+                                            controller: tak,
+                                            textAlignVertical: TextAlignVertical.bottom,
+                                            style: TextStyle(color: Primary, fontSize: 18.sp, fontWeight: FontWeight.w600,),
+                                            textAlign: TextAlign.start,
+                                            decoration: InputDecoration(hintText: 'Your Take',
+                                              hintStyle: TextStyle(color:Subtitle,fontSize: 13.sp,fontWeight: FontWeight.w400),
+                                              contentPadding: EdgeInsets.only(bottom: 8.h),
+                                              border: UnderlineInputBorder(borderSide: BorderSide(color: Color(0xFFD8D8D8))),
+                                              focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Primary)),
+                                            ),
+                                          )
                                       ),
                                     ),
                                     ItemSelectSubtitle(orI, Subtitle)

@@ -37,25 +37,22 @@ Widget MealCards(String BGsvg,Color BGcolor,ImageProvider icn,String Title,Strin
               SizedBox(height: 10.h,),
               MealBoxSubtitle('Recommended:\n$cal Kcal', White),
               SizedBox(height: 10.h,),
-              InkWell(
-                onTap: (){},
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100.r),
-                    boxShadow: [
-                      BoxShadow(
-                        color: ButtonShadow,
-                        offset: Offset(5.w, 5.h),
-                        blurRadius: 15.r,
-                        spreadRadius: 3.r,
-                      )
-                    ]
-                  ),
-                  child: CircleAvatar(
-                    radius: 20.r,
-                    backgroundColor: White,
-                    child: Icon(CupertinoIcons.right_chevron,color: BGcolor),
-                  ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: ButtonShadow,
+                      offset: Offset(5.w, 5.h),
+                      blurRadius: 15.r,
+                      spreadRadius: 3.r,
+                    )
+                  ]
+                ),
+                child: CircleAvatar(
+                  radius: 20.r,
+                  backgroundColor: White,
+                  child: Icon(CupertinoIcons.right_chevron,color: BGcolor),
                 ),
               )
           ],),
