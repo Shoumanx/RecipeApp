@@ -8,3 +8,5 @@ class Show extends DataBaseState{}
 class Update extends DataBaseState{}
 class UpdateC extends DataBaseState{}
 class Search extends DataBaseState{}
+class ClearListx extends DataBaseState{}
+class AddToListx extends DataBaseState{}

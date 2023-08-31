@@ -1,9 +1,10 @@
 import 'package:bloc/bloc.dart';
+import 'package:orangera/Changer/changeLogic.dart';
 import 'package:sqflite/sqflite.dart';
 
 import 'DataBaseState.dart';
-import 'foodinsertion.dart';
 
+List foodIn = [];
 class DataBaseLogic extends Cubit<DataBaseState>{
   DataBaseLogic() : super(InitState());
   late Database db;
@@ -122,11 +123,13 @@ class DataBaseLogic extends Cubit<DataBaseState>{
 
 
   updateCurrency(Database x, int newCurrency) async {
-    int n = await x.rawUpdate(
+     print('newCurrency: $newCurrency');
+     int n = await x.rawUpdate(
         'UPDATE orangera SET count = ? WHERE category = ?',
         [newCurrency, 'currentCurrency']
     );
-    print('#Row $n Updated ----> currentCurrency...');
+    foodIn = foodInCart;
+    print('#Row currentCurrency Updated ----> currentCurrency...');
     emit(UpdateC());
   }
 
@@ -144,6 +147,16 @@ class DataBaseLogic extends Cubit<DataBaseState>{
     });
     print('Searchedxx....');
     emit(Search());
+  }
+
+  addToListx(){
+    foodIn = foodInCart;
+    emit(AddToListx());
+  }
+
+  deleteFromListx(){
+    foodIn = foodInCart;
+    emit(ClearListx());
   }
 
 }

@@ -60,7 +60,10 @@ HomeHelloTitle(String x,Color col){
     fontSize: 19.sp,
     color: col,
     height: 1.h,
-  ),);
+  ),
+    overflow: TextOverflow.clip,
+    maxLines: 1,
+  );
 }
 HomeHelloSubtitle(String x,Color col){
   return Text(x,style: GoogleFonts.poppins(
@@ -68,7 +71,10 @@ HomeHelloSubtitle(String x,Color col){
     fontSize: 12.sp,
     color: col,
     height: 1.h,
-  ),);
+  ),
+    overflow: TextOverflow.clip,
+    maxLines: 1,
+  );
 }
 
 MealBoxTitle(String x,Color col){
@@ -111,4 +117,34 @@ Calories(String x,Color col){
     fontSize: 21.sp,
     color: col,
   ),);
+}
+
+ItemSelectName(String x,Color col){
+  return Text(x,style: GoogleFonts.poppins(
+    fontWeight: FontWeight.w700,
+    fontSize: 24.sp,
+    color: col,
+  ),overflow: TextOverflow.clip,maxLines: 1,);
+}
+ItemSelectTitle(String x,Color col){
+  return Text(x,style: GoogleFonts.poppins(
+    fontWeight: FontWeight.w700,
+    fontSize: 15.sp,
+    color: col,
+  ));
+}
+ItemSelectSubtitle(String x,Color col){
+  return Text(x,style: GoogleFonts.poppins(
+    fontWeight: FontWeight.w400,
+    fontSize: 15.sp,
+    color: col,
+  ),);
+}
+
+Buttons(String x,Color col){
+  return Text(x,style: GoogleFonts.poppins(
+    fontWeight: FontWeight.w700,
+    fontSize: 10.sp,
+    color: col,
+  ),overflow: TextOverflow.clip,maxLines: 1,);
 }

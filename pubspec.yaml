@@ -42,10 +42,18 @@ dependencies:
   google_nav_bar:
   get:
 
+
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons:
+
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: 'lib/Media/logo/launcher_icon.png'
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

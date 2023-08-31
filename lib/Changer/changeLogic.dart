@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:bloc/bloc.dart';
 import 'package:orangera/Colors/Colors.dart';
+import '../DataBase/DataBaseLogic.dart';
 import 'changeState.dart';
 
 
@@ -40,10 +41,10 @@ class ChangeLogic extends Cubit<ChangeState>{
 
 List foodInCart = [];
 String message = '0';
-int AllCount = 0, currentCurrency = 0;
+int AllCount = 0, currentCurrencyx = 0;
 
 class ChangeCartLogic extends Cubit<ChangeCartState>{
-  int counting = 0;
+  int counting = 0, allc = 0;
   ChangeCartLogic() : super(InitCart());
 
   addToCart({required String link, required String name, required String calories, required int cnt}){
@@ -62,6 +63,7 @@ class ChangeCartLogic extends Cubit<ChangeCartState>{
   }
 
   deleteFromCart(int index){
+    print('Deleted.....');
     int x = foodInCart[index]['count'];
     AllCount -= x;
     message = AllCount.toString();
@@ -70,15 +72,16 @@ class ChangeCartLogic extends Cubit<ChangeCartState>{
   }
 
 
-  ChangeMessage(){
-    message = 'Finish';
+  changeMessage(){
+    message = 'No Credit';
     emit(SetString());
   }
 
   clearList(){
-    print('Currentxxx: $currentCurrency');
-    currentCurrency -= AllCount;
-    print('Currentxxx: $currentCurrency');
+
+    print('Currentxxx: $currentCurrencyx');
+    currentCurrencyx -= AllCount;
+    print('Currentxxx: $currentCurrencyx');
     AllCount = 0;
     message = '0';
     foodInCart.clear();
@@ -89,4 +92,27 @@ class ChangeCartLogic extends Cubit<ChangeCartState>{
     counting = ((cnt / 100) * HowMany).toInt();
     emit(UpdateCount());
   }
+
+  updateCurrencyx(int newC){
+    currentCurrencyx = newC;
+    emit(UpdateCurrencyx());
+  }
+
+
 }
+
+
+
+class ChangeLaunchLogic extends Cubit<ChangeLaunchState>{
+  int curCur = currentCurrencyx;
+  ChangeLaunchLogic() : super(InitLaunch());
+
+  setLaunch(){
+    curCur = currentCurrencyx;
+    emit(SetLaunch());
+  }
+
+}
+
+
+

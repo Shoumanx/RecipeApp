@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:orangera/DataBase/DataBaseLogic.dart';
-import 'package:orangera/Screens/Item_Select.dart';
-import 'package:orangera/Screens/Lunch.dart';
 
+import '../../Widgets/Widgets.dart';
+import '../../assets/Color2.dart';
+import '../../assets/Text2.dart';
+import '../Onboard/Onboard.dart';
+import 'Item_Select.dart';
 
-import '../Widgets/Widgets.dart';
-import '../assets/Color2.dart';
-import '../assets/Text2.dart';
-import 'Onboard/Onboard.dart';
 
 class Home extends StatelessWidget {
 

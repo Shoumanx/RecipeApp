@@ -5,23 +5,24 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import '../Changer/changeLogic.dart';
-import '../Changer/changeState.dart';
-import '../assets/Text2.dart';
 
-import '../Widgets/Navbar.dart';
-import '../assets/Color2.dart';
+import '../../Changer/changeLogic.dart';
+import '../../Changer/changeState.dart';
+import '../../Widgets/Navbar.dart';
+import '../../assets/Color2.dart';
+import '../../assets/Text2.dart';
+
 
 class Launch extends StatelessWidget {
   Launch({super.key});
   BottomNavController Controller = Get.put(BottomNavController());
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => ChangeCartLogic(),
-        child: BlocConsumer<ChangeCartLogic, ChangeCartState>(
+        create: (context) => ChangeLaunchLogic(),
+        child: BlocConsumer<ChangeLaunchLogic, ChangeLaunchState>(
             listener: (context, state) {},
             builder: (context, state) {
-              ChangeCartLogic dx = BlocProvider.of(context);
+              ChangeLaunchLogic bx = BlocProvider.of(context);
               return ScreenUtilInit(
                 designSize: Size(360,690),
                 builder: (context, child) =>SafeArea(
@@ -50,7 +51,7 @@ class Launch extends StatelessWidget {
                                     borderRadius: BorderRadius.all(Radius.circular(20.r)),
                                     gradient: GR
                                 ),
-                                child: Calories('$currentCurrency', White),
+                                child: Calories('${bx.curCur}', White),
                               ),
                             ),
                             GNav(
@@ -70,7 +71,20 @@ class Launch extends StatelessWidget {
                                   iconActiveColor: White,
                                   textColor: White,
                                 ),
-                                GButton(icon: Icons.home,iconSize: 25.w,hoverColor: White,iconColor: Primary,text: 'Cart',gap: 10,backgroundColor: Primary,padding: EdgeInsets.all(15.w),borderRadius: BorderRadius.all(Radius.circular(20.r)),iconActiveColor: White,textColor: White,),
+                                GButton(
+                                  icon: Icons.store,
+                                  iconSize: 20.w,
+                                  hoverColor: White,
+                                  iconColor: Primary,
+                                  text: 'Items',
+                                  gap: 10.w,
+                                  backgroundColor: Primary,
+                                  padding: EdgeInsets.all(15.w),
+                                  borderRadius: BorderRadius.all(Radius.circular(20.r)),
+                                  iconActiveColor: White,
+                                  textColor: White,
+                                ),
+                                GButton(icon: Icons.shopping_basket,iconSize: 25.w,hoverColor: White,iconColor: Primary,text: 'Cart',gap: 10,backgroundColor: Primary,padding: EdgeInsets.all(15.w),borderRadius: BorderRadius.all(Radius.circular(20.r)),iconActiveColor: White,textColor: White,),
                               ],)
                           ],),
                         ),floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

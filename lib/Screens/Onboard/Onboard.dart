@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:orangera/DataBase/DataBaseLogic.dart';
-import 'package:orangera/Screens/Lunch.dart';
+import 'package:orangera/Screens/Home/Lunch.dart';
 import 'package:orangera/Screens/Onboard/1_Description.dart';
 import 'package:orangera/Screens/Onboard/2_Credentials.dart';
 import 'package:orangera/Screens/Onboard/4_Target.dart';
@@ -78,7 +78,7 @@ class Onboard extends StatelessWidget {
                             dx.insert(category: 'currency', name: 'currency', calories: '', price: '', count: currency.toInt(), gmORml: '');
                             dx.insert(category: 'currentCurrency', name: 'currency', calories: '', price: '', count: currency.toInt(), gmORml: '');
                             dx.insert(category: 'fullName', name: name, calories: '', price: '', count: 0, gmORml: gen);
-                            currentCurrency = currency.toInt();
+                            currentCurrencyx = currency.toInt();
                             fullName = name;
                             maleFemale = (gen == 'M') ? 'male' : 'female';
                             Navigator.push(

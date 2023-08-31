@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../DataBase/DataBaseLogic.dart';
-import '../DataBase/DataBaseState.dart';
-import '../DataBase/foodinsertion.dart';
-import '../Widgets/Widgets.dart';
-import '../assets/Color2.dart';
-import '../assets/Text2.dart';
-import 'addorno.dart';
+
+import '../../DataBase/DataBaseLogic.dart';
+import '../../DataBase/DataBaseState.dart';
+import '../../DataBase/foodinsertion.dart';
+import '../../Widgets/Widgets.dart';
+import '../../assets/Color2.dart';
+import '../../assets/Text2.dart';
+import 'Add.dart';
 
 
 class ItemSelect extends StatelessWidget {
@@ -122,9 +123,10 @@ class ItemSelect extends StatelessWidget {
                               itemBuilder: (context, index) {
                                 return InkWell(
                                   onTap: (){
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (c) => AddOrNo(
-                                          foodLink: 'lib/Media/ItemsPng/italiano pasta ziti.png',
+                                    Navigator.push(
+                                      context,
+                                        MaterialPageRoute(builder: (context) => Add(
+                                          foodLink: 'lib/Media/ItemsPng/${dx.selectedFood[index]['name']}.png',
                                           foodCalories: dx.selectedFood[index]['calories'],
                                           foodCount: dx.selectedFood[index]['count'],
                                           foodName: dx.selectedFood[index]['name'],
@@ -134,7 +136,7 @@ class ItemSelect extends StatelessWidget {
                                     );
                                   },
                                   child: ItemCards(
-                                      'lib/Media/ItemsPng/italiano pasta ziti.png',
+                                      'lib/Media/ItemsPng/${dx.selectedFood[index]['name']}.png',
                                       dx.selectedFood[index]['name'],
                                       dx.selectedFood[index]['calories']
                                       ,'${dx.selectedFood[index]['price']}\$'),
